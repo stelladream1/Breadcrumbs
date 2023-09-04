@@ -39,7 +39,8 @@
 
 <hr>
 ## 테이블 구조
-![image](https://github.com/stelladream1/Breadcrumbs/assets/74993171/2ced68ab-201a-46a3-8227-0926372addd8)
+![스크린샷 2023-09-04 185439](https://github.com/stelladream1/Breadcrumbs/assets/74993171/d8dfa9e7-0dcf-417b-82a7-8619e13a84ac)                  
+ 
 하위 페이지를 찾기 위해서는 현재 페이지의 상위페이지를 저장해야된다고 생각했습니다.  그렇기 때문에 top_page 라는 컬럼을 만들었습니다. 
 pageName은 브로드크럼스를 출력할 때 페이지의 아이디(board_id)가 아닌 페이지의 이름을(ex. 홈, 카테고리1 , 카테고리2 등) 리턴하기 위해 만들었습니다.  
 
@@ -61,18 +62,21 @@ String subPagesQuery = "SELECT b.board_id, b.board_title , b.board_content " +
 
 ```
 3. 요청한 페이지의 브로드크럼스를 가져오는 쿼리
+
+이것을 바탕으로 맨 상위 페이지갈 때 까지 반복해서 현재 페이지의 상위페이지를 계속 찾아갑니다. 
+이것을 배열로 저장한 결과의 reverse 를 저장합니다. 
+
 ```
 String pageNameQuery = "SELECT b.pageName " +
                        "FROM board b " +
                        "WHERE b.board_id = ?";
 ```
-이것을 바탕으로 맨 상위 페이지갈 때 까지 반복해서 현재 페이지의 상위페이지를 계속 찾아갑니다. 
-이것을 배열로 저장한 결과의 reverse 를 저장합니다. 
+
 
 ## 결과 정보
 
-현재 데이터 베이스에 저장된 페이지 정보
-![image](https://github.com/stelladream1/Breadcrumbs/assets/74993171/93fdb187-2d47-4943-8ad1-c392b252ea16)
+현재 데이터 베이스에 저장된 페이지 정보                  
+         
 
 GET http://localhost:8080/1
 ```
