@@ -39,11 +39,12 @@
 
 <hr>
 ## 테이블 구조
-![스크린샷 2023-09-04 185439](https://github.com/stelladream1/Breadcrumbs/assets/74993171/d8dfa9e7-0dcf-417b-82a7-8619e13a84ac)                  
+             
  
-하위 페이지를 찾기 위해서는 현재 페이지의 상위페이지를 저장해야된다고 생각했습니다.  그렇기 때문에 top_page 라는 컬럼을 만들었습니다. 
+하위 페이지를 찾기 위해서는 현재 페이지의 상위페이지를 저장해야된다고 생각했습니다. 그렇기 때문에 top_page 라는 컬럼을 만들었습니다.                 
 pageName은 브로드크럼스를 출력할 때 페이지의 아이디(board_id)가 아닌 페이지의 이름을(ex. 홈, 카테고리1 , 카테고리2 등) 리턴하기 위해 만들었습니다.  
 
+![스크린샷 2023-09-04 185439](https://github.com/stelladream1/Breadcrumbs/assets/74993171/db3aeda8-b872-49d3-8d7c-f04ea0738a74)
 
 ## 비즈니스 로직
 
@@ -76,7 +77,8 @@ String pageNameQuery = "SELECT b.pageName " +
 ## 결과 정보
 
 현재 데이터 베이스에 저장된 페이지 정보                  
-         
+![스크린샷 2023-09-04 190105](https://github.com/stelladream1/Breadcrumbs/assets/74993171/bcdc4ba9-5f3c-4e73-b527-0749ee3e4037)
+
 
 GET http://localhost:8080/1
 ```
